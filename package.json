@@ -1,6 +1,6 @@
 {
   "name": "itcss-easy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Setup a folder structure for ITCSS conventions. Create components from the command line",
   "bin": {
     "itcss-easy": "itcss-easy"
