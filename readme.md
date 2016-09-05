@@ -26,9 +26,21 @@ component directories with associated `.scss` filenames.
 ---
 
 ### Usage
-Run `itcss-easy` from the command line to create the following directories: Settings, Tools, Generic, Elements, Objects, Components and Trumps
-An `application.scss` file will also be created and will include the correct import structure for the ITCSS directories. Feel free
-to rename the `application.scss` file to whatever you like. 
+Run `itcss-easy` from the command line to create the following directories and filenames:
+
+```
+application.scss
+
+settings/
+tools/
+generic/
+elements/
+objects/
+components/
+trumps/
+```
+
+Each directory has an associated `.scss` file inside. An `application.scss` file will also be created and will include the correct import structure for the ITCSS directories. Feel free to rename the `application.scss` file to whatever you like. 
 
 #### Creating components
 You can create components from the command line by simply passing a name argument.
@@ -39,4 +51,11 @@ Make sure to run the command from the Root folder. Components will be built insi
 Each component includes it's own `.scss` file which is imported into `components/components.css` using the 
 `@import` declaration. 
 
-
+```
+components/
+├── component-1/
+│   ├── component-1.scss
+├── component-2/
+│   ├── component-2.scss
+...
+```
