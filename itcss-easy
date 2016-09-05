@@ -1,37 +1,56 @@
 #!/bin/bash
 
 ##
-## itcss-scss
+## itcss-easy
 ##
 ## builds a folder structure based on ITCSS conventions.
 ##
-## an application.scss file will be generated with the proper import
-## structure for each of the directories.
+## application.scss file will be generated with proper import
+## structure for each scss directory.
 ##
 ## components can be built from the command line by passing the
 ## component name as an argument.
-## example: itcss-scss [component-name]
 
 
-clear ## clear terminal
-touch application.scss ## make an application.scss file
+COMMAND='itcss-easy'
+ERROR='\033[0;31m'
+NC='\033[0m' # No Color
+SUCCESS='\033[0;32m'
 
+touch application.scss
+
+## ITCSS layers
 layers=(settings tools generic elements objects components trumps)
 
-if [ "$1" != "" ]; then
-  ## create components by passing a name argument.
-  ## itcss-scss [component-name]
-  mkdir "components/${1}" && touch "components/${i}/${i}.scss"
-  echo "@import" "${i};" >> components/components.scss
-  echo "Your new component $1 has been created"
+## creates a component
+function create_component {
+  mkdir "components/${1}" && touch "components/${1}/${1}.scss"
+  echo "@import" "\"${1}/${1}"\"";" >> components/components.scss
+  printf "${SUCCESS}Your new component ${1} has been created\n"
+}
 
-else
-  ## creates a folder and .scss file for each ITCSS layer
-  ## imports each .scss file into an application.scss file
+## sets up ITCSS folder structure
+## should be run first before trying to
+## create a component
+function init {
   for i in "${layers[@]}"
   do
      :
      mkdir $i && touch $i/$i".scss"
      echo "@import" "\"${i}/${i}"\"";" >> application.scss
   done
+  printf "${SUCCESS}You're all setup!\n"
+}
+
+## if argument is false, run init function
+## if argument is true, build component
+if [ "$1" != "" ]; then
+  #check for a components.scss file before building component
+  if [ -f "components/components.scss" ]; then
+    create_component $1
+  else
+    printf "${ERROR}Woops, you don't have a components directory. Try running ${COMMAND} to get setup\n"
+  fi
+else
+  init
 fi
