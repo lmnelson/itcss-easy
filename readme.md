@@ -27,7 +27,11 @@ npm install --global itcss-easy
 ---
 
 ### Usage
-**To get started** Run `itcss-easy` from the command line. You will be prompted to enter a name for your global stylesheet. Leave the name blank to have an `application.scss` file created for you. After a stylesheet name has been provided, the following directories and filenames will be created:
+**After installation is complete, run the following command from Terminal** 
+```
+itcss-easy
+``` 
+You will be prompted to enter a name for your global stylesheet. Leave the name blank to have an `application.scss` file created for you. After a stylesheet name has been provided, the following directories and filenames will be created:
 
 ```
 [stylesheetname].scss
