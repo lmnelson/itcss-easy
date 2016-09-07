@@ -22,7 +22,7 @@ layers=(settings tools generic elements objects components trumps)
 
 ## Prompt user for stylesheet name and build stylesheet
 function create_stylesheet {
-  echo "Enter a name for your new global stylesheet. We will append the name with a .scss file extension. Leave the name blank and an application.scss file will be created for you."
+  printf "Enter a name for your new global stylesheet. It will be appended with a .scss file extension.\nOr, leave the name blank and an application.scss file will be created for you.\n"
   read stylesheet_prompt_val
   stylesheet=''
   if [ "${stylesheet_prompt_val}" == "" ]; then
