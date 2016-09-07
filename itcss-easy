@@ -17,10 +17,20 @@ ERROR='\033[0;31m'
 NC='\033[0m' # No Color
 SUCCESS='\033[0;32m'
 
-touch application.scss
-
 ## ITCSS layers
 layers=(settings tools generic elements objects components trumps)
+
+## Prompt user for stylesheet name and build stylesheet
+function create_stylesheet {
+  echo "Enter a name for your new global stylesheet. We will append the name with a .scss file extension. Leave the name blank and an application.scss file will be created for you."
+  read stylesheet_prompt_val
+  stylesheet=''
+  if [ "${stylesheet_prompt_val}" == "" ]; then
+    stylesheet='application'
+  else
+    stylesheet=${stylesheet_prompt_val}
+  fi
+}
 
 ## creates a component
 function create_component {
@@ -29,17 +39,17 @@ function create_component {
   printf "${SUCCESS}Your new component ${1} has been created\n"
 }
 
-## sets up ITCSS folder structure
-## should be run first before trying to
-## create a component
+## sets up ITCSS folder structure & builds stylesheet.
+## should be run first before trying to create a component
 function init {
+  create_stylesheet
   for i in "${layers[@]}"
   do
      :
      mkdir $i && touch $i/$i".scss"
-     echo "@import" "\"${i}/${i}"\"";" >> application.scss
+     echo "@import" "\"${i}/${i}"\"";" >> ${stylesheet}.scss
   done
-  printf "${SUCCESS}You're all setup!\n"
+  printf "${SUCCESS}You're all setup! ITCSS directories and a new global stylesheet ${stylesheet}.scss have been created\n"
 }
 
 ## if argument is false, run init function
