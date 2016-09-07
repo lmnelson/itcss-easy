@@ -10,7 +10,7 @@ and building files.
 
 At it's core, `itcss-easy` quickly sets up a folder directory based on the ITCSS convention: Settings, Tools, Generic,
 Elements, Objects, Components and Trumps. Secondly, you can pass a name argument to `itcss-easy` to quickly build
-component directories with associated `.scss` filenames.
+components with associated `.scss` filenames.
 
 
 ---
@@ -21,15 +21,16 @@ component directories with associated `.scss` filenames.
 `itcss-easy` is simply a shell script. Add the itcss-easy file to your `PATH` directory or wherever your executables happen to run from. To find out, run `echo $PATH` from your command line.
 
 #### NPM
-`npm install --global itcss-easy`
-
+```
+npm install --global itcss-easy
+```
 ---
 
 ### Usage
-Run `itcss-easy` from the command line to create the following directories and filenames:
+**To get started** Run `itcss-easy` from the command line. You will be prompted to enter a name for your global stylesheet. Leave the name blank to have an `application.scss` file created for you. After a stylesheet name has been provided, the following directories and filenames will be created:
 
 ```
-application.scss
+[stylesheetname].scss
 
 settings/
 tools/
@@ -40,22 +41,18 @@ components/
 trumps/
 ```
 
-Each directory has an associated `.scss` file inside. An `application.scss` file will also be created and will include the correct import structure for the ITCSS directories. Feel free to rename the `application.scss` file to whatever you like.
-
 #### Creating components
 You can create components from the command line by simply passing a name argument.
 
-`itcss-easy [component-name]`
+```
+itcss-easy [component-name]
+```
 
-Make sure to run the command from the Root folder. Components will be built inside of components directory.
-Each component includes it's own `.scss` file which is imported into `components/components.css` using the
-`@import` declaration.
+Make sure to run the command from the Root folder. Components `.scss` files will be added to the components directory and imported into the `components.scss` file using `@import [your-component-name]`
 
 ```
 components/
-├── component-1/
-│   ├── component-1.scss
-├── component-2/
-│   ├── component-2.scss
-...
+  component1.scss
+  component2.scss
+  ...
 ```
