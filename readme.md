@@ -5,10 +5,10 @@
 These days, I continually find myself using a combination of [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/),
 [BEM](https://en.bem.info/) and [SASS](http://sass-lang.com/) for the majority of my projects.
 I love the structure and clarity the methodologies provide, but writing directory names, filenames and `@import`
-declarations can be tedious. This command line tool is aimed at reducing some of the overhead involed in naming
+declarations can be tedious. This command line tool is aimed at reducing some of the overhead involved in naming
 and building files.
 
-At it's core, `itcss-easy` quickly sets up a folder directory based on the ITCSS convention: Settings, Tools, Generic,
+At its core, `itcss-easy` quickly sets up a folder directory based on the ITCSS convention: Settings, Tools, Generic,
 Elements, Objects, Components and Trumps. Secondly, you can pass a name argument to `itcss-easy` to quickly build
 components with associated `.scss` filenames.
 
